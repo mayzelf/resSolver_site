@@ -3,6 +3,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxtjs/tailwindcss", "@nuxtjs/color-mode", "@vesp/nuxt-fontawesome"],
 
+  css: ["v-network-graph/lib/style.css"],
+  
   colorMode: {
     classSuffix: "",
   },
@@ -19,5 +21,7 @@ export default defineNuxtConfig({
     },
     content: {},
   } as { [key: string]: unknown },
+
+
 
 });
