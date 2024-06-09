@@ -142,7 +142,6 @@ export function solve(userInput: string): string[] | string{
     }
   }
   let cleanedUp = cleanup(result);
-  console.log(cleanedUp);
   return cleanedUp;
 }
 

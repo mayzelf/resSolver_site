@@ -130,7 +130,6 @@ watchEffect(() => {
   } else {
     graphData = generateGraphData([]);
   }
-  console.log(graphData);
 
   nodes = graphData.xnodes;
   edges = graphData.xedges;
