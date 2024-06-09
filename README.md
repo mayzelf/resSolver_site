@@ -1,75 +1,21 @@
-# Nuxt 3 Minimal Starter
+# Project Title
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This project is a Vue.js application that visualizes a graph using the v-network-graph library and provides a solver for logical expressions. It is hosted at [resolutionsolver.mayzelf.xyz](http://resolutionsolver.mayzelf.xyz).
 
-## Setup
+## Files
 
-Make sure to install the dependencies:
+### Graph.vue
 
-```bash
-# npm
-npm install
+This Vue component is responsible for rendering a graph. It uses the v-network-graph library to visualize nodes and edges. The layout of the graph can be changed between "Top to Bottom" and "Left to Right" using a dropdown menu.
 
-# pnpm
-pnpm install
+### solver.ts
 
-# yarn
-yarn install
+This TypeScript file contains the logic for solving logical expressions. It provides a `solve` function that takes a user input string, validates it, and then processes it to find a solution. The solution is returned as an array of strings or a string message if the input format is incorrect.
 
-# bun
-bun install
-```
+## Usage
 
-## Development Server
+To use this application, simply input your logical expression into the provided input field and click the "Solve" button. The solution will be displayed in the output area. You can also visualize the logical expression as a graph by clicking the "Visualize" button.
 
-Start the development server on `http://localhost:3000`:
+## Contributing
 
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

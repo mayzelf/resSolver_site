@@ -141,6 +141,31 @@ export function solve(userInput: string): string[] | string{
       throw e;
     }
   }
+  let cleanedUp = cleanup(result);
+  console.log(cleanedUp);
+  return cleanedUp;
+}
 
-  return result;
+function cleanup(steps: string[]): string[] {
+  let neededSteps: string[] = [];
+  let lastStepResult = steps[steps.length - 1].split(" ==> ")[1];
+  let literals = new Set([lastStepResult]);
+  let results = new Set(); // To keep track of unique outcomes
+
+  for (let i = steps.length - 1; i >= 0; i--) {
+    let step = steps[i];
+    let result = step.split(" ==> ")[1];
+
+    if (literals.has(result) && !results.has(result)) {
+      neededSteps.push(step);
+      results.add(result); // Add the result to the set of unique outcomes
+
+      let literalsFromStep = step.match(/{.*?}/g);
+      if (literalsFromStep) {
+        literalsFromStep.forEach(literal => literals.add(literal));
+      }
+    }
+  }
+
+  return neededSteps.reverse();
 }
