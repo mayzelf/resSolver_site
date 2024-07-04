@@ -1,7 +1,7 @@
 <template>
 <main>
     <div role="form">
-    <div v-if="loading === false" class="flex flex-col items-center justify-center min-h-screen py-2 dark:bg-gray-800 dark:text-white" :class="{ dark: darkMode }">
+    <div v-if="!loading" class="flex flex-col items-center justify-center min-h-screen py-2 dark:bg-gray-800 dark:text-white" :class="{ dark: darkMode }">
         <div class="flex items-center justify-between w-full max-w-xs px-8 mb-4">
             <h1 class="text-2xl">Resolution Proof Solver</h1>
             <div>
@@ -51,7 +51,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted, onBeforeMount } from 'vue';
 import { solve } from './solver';
 import Graph from '~/components/Graph.vue';
 
@@ -75,9 +75,13 @@ useHead({
 
 
 let loading = ref(true);
-let darkMode = ref(false);
+let darkMode: Ref<boolean>;
 const userInput = ref('');
 const result = ref<string[]>([]);
+
+if (process.client) {
+  darkMode = ref(false);
+}
 
 const submitForm = (): void => {
     let solveResult = solve(userInput.value);
@@ -104,7 +108,9 @@ const toggleDarkMode = () => {
 
 onBeforeMount(() => {
   if (process.client) {
-    darkMode.value = localStorage.getItem('darkMode') ? localStorage.getItem('darkMode') === 'true' : false;
+    darkMode.value = localStorage.getItem("darkMode")
+      ? localStorage.getItem("darkMode") === "true"
+      : false;
     loading.value = false;
   }
 });

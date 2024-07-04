@@ -1,6 +1,6 @@
 <template>
-  <div class="control-panel">
-    <select @change="updateLayout($event.target.value)" class="bg-blue-500 text-white font-bold py-2 px-4 rounded">
+<div class="control-panel flex justify-center">
+    <select @change="updateLayout($event.target.value)" class="hover:bg-blue-500 bg-blue-600 text-white font-bold py-2 px-4 rounded">
         <option value="LR">Layout: Left to Right</option>
         <option value="TB">Layout: Top to Bottom</option>
     </select>
