@@ -1,5 +1,3 @@
-import { match } from "assert";
-
 function removeDuplicates(s: string): string {
   // Split string into array of literals
   let literals = s.slice(1, -1).split(",");
