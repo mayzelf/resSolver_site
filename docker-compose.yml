@@ -1,0 +1,19 @@
+services:
+  ressolver_site:
+      restart: unless-stopped
+      build:
+        context: .
+        dockerfile: Dockerfile
+      container_name: ressolver_site
+      environment:
+        - NODE_ENV=production
+        - VIRTUAL_HOST=ressolver.mayzelf.xyz
+        - LETSENCRYPT_HOST=ressolver.mayzelf.xyz
+        - LETSENCRYPT_EMAIL=letsencrypt@mayzelf.xyz
+      networks:
+        - docker_default
+
+networks:
+  docker_default:
+    external: true
+    name: docker_default
